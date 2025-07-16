@@ -1,2 +1,36 @@
 # KrillCommunication
 MACE multifrequency krill abundance and distribution data
+
+## Eastern Bering Sea summer acoustic-trawl survey: background
+- MACE has been producing estimates of krill (primarily *Thysanoessa raschii* and *T. inermis*) abundance and distribution dating back to 2004.
+- Estimates are based on multifrequency acoustic identification techniques: krill backscatter gets stronger at higher frequencies, while fish backscatter does not. 
+We use this principle to identify krill acoustically. We then convert krill backscatter into krill abundance and biomass terms using information about our krill catch 
+and the acoustic properties of krill (see De Robertis et al. 2010, Ressler 2012 for details).
+- We've recently updated our time series to:
+	- minor improvements to acoustic identification methods
+	- use our long-term krill catch records and an updated model of krill acoustic properties (i.e. target strength) 
+	to scale backscatter into abundance and biomass more appropriately 
+	- Share this data at a finer spatial scale 
+- This is update is summarized in a NOAA Technical Memorandum (Levine et al. in prep)
+
+## Eastern Bering Sea summer acoustic-trawl survey: data products
+- Survey data are available in three resolutions:
+	- Survey total (recommended for researchers interested in ecosystem-scale patterns)
+	- Vertically integrated 0.5 nmi horizontal resolution (recommended for researchers interested in spatial distributions and don't require a vertical component) 
+	- 0.5 nmi horizontal X 20 m vertical resolution (recommended for researchers that are interested in both horizontal and vertical distribution of krill)
+
+- Survey data are available in 4 units:
+	- Krill backscatter (m<sup>2<sup> nmi<sup>-2<sup>): This represents the amount of krill acoustic backscatter at 120 kHz. This unit does not require any
+	conversions based on krill catch data or target strength estimates, and therefore requires fewer assumptions than other units.
+	- Krill areal density (m<sup>2<sup>): This unit also scales krill backscatter into areal density integrated over the entire water column based on estimates of the average krill size within each survey year. Most users should use areal density as it accounts for the depth of the water column at the sample location.
+	- Krill areal density in units of wet weight (g/m<sup>2<sup>): This unit converts krill density (m<sup>2<sup>) into units of biomass based on a krill length:wet weight relationship. 
+	- Krill volumetric density (m<sup>3<sup>): This unit scales krill backscatter into abundance per unit volume based on estimates of the average krill size within each survey year. 
+	It is provided for consistency with previously supplied values, but total abundance is difficult to interpret without knowledge of the depth of the water column at the sample location. 
+	
+### Further reading:
+[De Robertis, A., McKelvey, D.R., Ressler, P.H. 2010. Development and application of an empirical multifrequency method for backscatter classification.
+Can.J. Fish. Aquat. Sci. 67, 1459 –1474.](https://cdnsciencepub.com/doi/10.1139/F10-075)
+
+[Ressler, P.H., A.DeRobertis, J.D.Warren, J.N.Smith, and S.Kotwicki. 2012. Developing an acoustic survey of euphausiids to understand trophic interactions in the Bering Sea ecosystem.
+Deep-Sea Research PartII 65 –70:184–195.](https://doi.org/10.1016/j.dsr2.2012.02.015)
+	
