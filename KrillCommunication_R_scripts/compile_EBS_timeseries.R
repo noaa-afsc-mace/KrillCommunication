@@ -89,7 +89,7 @@ basemap +
   theme_bw()
 
 ###################################################
-# I am interested in the vertical distibution of krill in each year. Show me the mean depth (weighted by krill backscatter)
+# I am interested in the vertical distribution of krill in each year. Show me the mean depth (weighted by krill backscatter)
 mwd <- layer_results %>%
   # define depth as the center of 20 m bins
   mutate(depth = layer_depth_max_m - 10) %>%
@@ -100,7 +100,8 @@ mwd <- layer_results %>%
 ###################################################
  # I want to convert krill backscatter to abundance
 # (For example, you may want to do this if you feel there's a better way use krill lengths -
-# a key parameter in converting from backscatter to abundance/biomass) 
+# a key parameter in converting from backscatter to abundance/biomass or want to use a different 
+# target strength relationship) 
 
 # note that the example that follows here does NOT modify the approach used in the time series (it will produce equivalent results to the time series and is presented simply as an example of the calculations for those looking to insert alternative scaling information)
 
@@ -188,6 +189,7 @@ recalc_survey <- recalc_edsu %>%
             krill_m2 = sum(krill_m2 * interval_width_nmi)/ sum(interval_width_nmi),
             krill_ww_g_m2 = sum(krill_ww_g_m2 *interval_width_nmi)/sum(interval_width_nmi))
 
+# tests to see if survey results and recalculated results are equivalent
 # all.equal(survey_results$krill_sA, recalc_survey$krill_sA)
 # all.equal(survey_results$krill_m3, recalc_survey$krill_m3)
 # all.equal(survey_results$krill_m2, recalc_survey$krill_m2)
