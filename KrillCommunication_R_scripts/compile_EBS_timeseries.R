@@ -17,10 +17,6 @@ rm(list = ls())
 # load some libraries
 library(tidyverse)
 library(sf)
-# the MACEReports package is used in plotting below. If you'd like to get it see:
-# https://noaa-afsc-mace.github.io/MACEReports/ for installation instructions, or run:
-# devtools::install_github('noaa-afsc-mace/MACEReports')
-library(MACEReports)
 
 ##################################
 # 1. Opening up all the EBS krill time series files at various resolutions
@@ -48,7 +44,6 @@ edsu_results <- open_files(folder_loc = '../survey_results/summer_EBS/edsu_resul
 survey_results <- open_files(folder_loc = '../survey_results/summer_EBS/survey_results/')
 
 ##############################################
-
 # I only care about the survey totals. Show me!
 
 # reshape to plot 
@@ -71,21 +66,27 @@ edsu_plot_dat <- st_as_sf(edsu_results, coords = c("start_longitude", "start_lat
                           crs = 4326, remove = FALSE)
 edsu_plot_dat <- st_transform(edsu_plot_dat, crs = 3338)
 
-# get a basemap for plotting from MACEReports
-basemap <- MACEReports::get_basemap_layers(plot_limits_data = edsu_plot_dat, bathy = FALSE, contours = c(200,100,50))
+# get a basemap for plotting 
+ak_land <- st_read('resources/alaska_land_EPSG3338.gpkg')
 
 # plot 120 kHz backscatter for each year (log10 transformed)
-basemap +
+ggplot() +
+  geom_sf(data = ak_land, color = 'grey80') +
   geom_sf(data = edsu_plot_dat, aes(color = log10(krill_sA + 1))) +
   scale_color_viridis_c() + 
   facet_wrap(~year) +
+  # set plot limits
+  coord_sf(xlim = c(min(st_coordinates(edsu_plot_dat)[,1]), max(st_coordinates(edsu_plot_dat)[,1])), ylim = c(min(st_coordinates(edsu_plot_dat)[,2]), max(st_coordinates(edsu_plot_dat)[,2])), expand = FALSE) +
   theme_bw()
 
 # plot krill/m2 for each year (log10 transformed)
-basemap +
+ggplot() +
+  geom_sf(data = ak_land, color = 'grey80') +
   geom_sf(data = edsu_plot_dat, aes(color = log10(krill_ww_g_m2 + 1))) +
   scale_color_viridis_c() + 
   facet_wrap(~year) +
+  # set plot limits
+  coord_sf(xlim = c(min(st_coordinates(edsu_plot_dat)[,1]), max(st_coordinates(edsu_plot_dat)[,1])), ylim = c(min(st_coordinates(edsu_plot_dat)[,2]), max(st_coordinates(edsu_plot_dat)[,2])), expand = FALSE) +
   theme_bw()
 
 ###################################################
@@ -100,8 +101,7 @@ mwd <- layer_results %>%
 ###################################################
  # I want to convert krill backscatter to abundance
 # (For example, you may want to do this if you feel there's a better way use krill lengths -
-# a key parameter in converting from backscatter to abundance/biomass or want to use a different 
-# target strength relationship) 
+# a key parameter in converting from backscatter to abundance/biomass- or want to use a different # target strength relationship) 
 
 # note that the example that follows here does NOT modify the approach used in the time series (it will produce equivalent results to the time series and is presented simply as an example of the calculations for those looking to insert alternative scaling information)
 
@@ -190,7 +190,7 @@ recalc_survey <- recalc_edsu %>%
             krill_ww_g_m2 = sum(krill_ww_g_m2 *interval_width_nmi)/sum(interval_width_nmi))
 
 # tests to see if survey results and recalculated results are equivalent
-# all.equal(survey_results$krill_sA, recalc_survey$krill_sA)
-# all.equal(survey_results$krill_m3, recalc_survey$krill_m3)
-# all.equal(survey_results$krill_m2, recalc_survey$krill_m2)
-# all.equal(survey_results$krill_ww_g_m2, recalc_survey$krill_ww_g_m2)
+all.equal(survey_results$krill_sA, recalc_survey$krill_sA)
+all.equal(survey_results$krill_m3, recalc_survey$krill_m3)
+all.equal(survey_results$krill_m2, recalc_survey$krill_m2)
+all.equal(survey_results$krill_ww_g_m2, recalc_survey$krill_ww_g_m2)

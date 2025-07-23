@@ -28,6 +28,18 @@ and the acoustic properties of krill (see De Robertis et al. 2010, Ressler 2012 
 	- Krill volumetric density (indiviudals m<sup>-3</sup>): This unit scales krill backscatter into abundance per unit volume based on estimates of the average krill size within each survey year. 
 	It is provided for consistency with previously supplied values, but total abundance is difficult to interpret without knowledge of the depth of the water column at the sample location. 
 	
+## Data access:
+
+The easiest way to get the data is to clone this repository. Once you've got it, you'll find:
+  -Results are in the 'survey_results' folder. Please see the file 'EBS_results_metadata.xslx' for column definitions on all datasets. 
+  -Within the 'survey_results' folder, you'll find subfolders with annual data at each resolution ('edsu_results', 'layer_results', 'survey_results').
+  - The 'survey_results' folder also contains a subfolder entitled 'target_strength', which contains raw catch data and a target strength-length lookup table used to convert krill backscatter to units of abundance and biomass. 
+  
+We additionally provide a small R project in the folder 'KrillCommunication_R_scripts' that demonstrates how to compile and explore the EBS krill time series. Simply load the R project, and then open the script 'compile_EBS_timeseries.R'.
+
+## Current version:
+The data here are PRELIMINARY for all years and should be used only for exploratory analysis! Final version expected fall 2025.
+	
 ### Further reading:
 [De Robertis, A., McKelvey, D.R., Ressler, P.H. 2010. Development and application of an empirical multifrequency method for backscatter classification.
 Can.J. Fish. Aquat. Sci. 67, 1459 –1474.](https://cdnsciencepub.com/doi/10.1139/F10-075)
