@@ -116,7 +116,7 @@ krill_catch_data <- read_csv('../survey_results/summer_EBS/target_strength/MACE_
 
 #############
 # step 3: load the Lucca 2023 TS-length lookup table; This represents the mean target strength (and it's linear equivalent, sigmaBS) for EBS krill on a per-cm basis. It also contains the length- wet weight values
-Lucca_2023_TS_lookup <- read_csv('../survey_results/summer_EBS/target_strength/Lucca_2023_EBS_krill_120_kHz_TS_length_lookup_table.csv')
+Lucca_2021_TS_lookup <- read_csv('../survey_results/summer_EBS/target_strength/Lucca_2021_EBS_krill_120_kHz_TS_length_lookup_table.csv')
 
 ################
 # step 4: Get the per-year conversion values from the catch data
@@ -126,7 +126,7 @@ conversion_values <- krill_catch_data %>%
   summarize(count = n()) %>%
   mutate(prop_at_length = count/sum(count)) %>%
   # add the sigmaBS values at each length class
-  left_join(Lucca_2023_TS_lookup, by = c('length_bin' = 'length_mm')) %>%
+  left_join(Lucca_2021_TS_lookup, by = c('length_bin' = 'poland_length_mm')) %>%
   # compute mean length, sigmaBShat, wet weight from the prop at length
   group_by(year) %>%
   summarize(mean_length = sum(length_bin * prop_at_length),
