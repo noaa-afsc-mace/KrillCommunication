@@ -112,7 +112,7 @@ recalc_layers <- layer_results %>%
 
 ##############
 # step 2: load raw catch data to get krill lengths; This represents all of MACE's s processed krill catch data as of 07/2025
-krill_catch_data <- read_csv('../survey_results/summer_EBS/target_strength/MACE_krill_catch_data_2004_to_2022.csv')
+krill_catch_data <- read_csv('../survey_results/summer_EBS/target_strength/MACE_krill_length_data.csv')
 
 #############
 # step 3: load the Lucca 2023 TS-length lookup table; This represents the mean target strength (and it's linear equivalent, sigmaBS) for EBS krill on a per-cm basis. It also contains the length- wet weight values
@@ -133,7 +133,7 @@ conversion_values <- krill_catch_data %>%
             mean_sigmaBS = sum(sigmaBS * prop_at_length),
             mean_ww_mg = sum(wet_wt_mg * prop_at_length))
 
-# add two special cases:
+# add one special case:
 
 # for 2020 (Saildrone acoustic-only sampling, no krill trawl lengths) we use the 2018 catch data
 row_2020 <- c(2020, 
@@ -142,14 +142,6 @@ row_2020 <- c(2020,
               conversion_values$mean_ww_mg[conversion_values$year == 2018])
 
 conversion_values <- rbind(conversion_values, row_2020)
-
-# for 2024, we don't (yet) have krill length data- these take a while to get
-row_2024 <- c(2024, 
-              conversion_values$mean_length[conversion_values$year == 2022],
-              conversion_values$mean_sigmaBS[conversion_values$year == 2022],
-              conversion_values$mean_ww_mg[conversion_values$year == 2022])
-
-conversion_values <- rbind(conversion_values, row_2024)
 
 # now add the conversion factors we need to the cells data
 recalc_layers <- left_join(recalc_layers, conversion_values, by = c('year'))

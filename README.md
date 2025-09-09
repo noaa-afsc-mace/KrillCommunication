@@ -11,13 +11,13 @@ and the acoustic properties of krill (see De Robertis et al. 2010, Ressler 2012 
 	- use our long-term krill catch records and an updated model of krill acoustic properties (i.e. target strength) 
 	to scale backscatter into abundance and biomass more appropriately 
 	- Share this data at a finer spatial scale 
-	- Incorporate estimates from a uncrwed surface vehicle survey in 2020 when ship-based data was not available (Levine and De Robertis, 2025)
+	- Incorporate estimates from a uncrewed surface vehicle survey in 2020 when ship-based data was not available (Levine and De Robertis, 2025)
 - These updates are described in detail in a NOAA Technical Memorandum (Levine et al. in prep)
 
 ## Eastern Bering Sea summer acoustic-trawl survey: data products
 - Survey data are available in three resolutions:
 	- Survey total (recommended for researchers interested in ecosystem-scale patterns)
-	- Vertically integrated 0.5 nmi horizontal resolution (recommended for researchers interested in spatial distributions and don't require a vertical component) 
+	- Vertically integrated 0.5 nmi horizontal resolution (recommended for researchers interested in spatial distributions who don't require a vertical component) 
 	- 0.5 nmi horizontal X 20 m vertical resolution (recommended for researchers that are interested in both horizontal and vertical distribution of krill)
 
 - Survey data are available in 4 units:
@@ -25,7 +25,7 @@ and the acoustic properties of krill (see De Robertis et al. 2010, Ressler 2012 
 	conversions based on krill catch data or target strength estimates, and therefore requires fewer assumptions than other units.
 	- Krill areal density (indiviudals m<sup>-2</sup>): This unit also scales krill backscatter into areal density integrated over the entire water column based on estimates of the average krill size within each survey year. Most users should use areal density as it accounts for the depth of the water column at the sample location.
 	- Krill areal density in units of wet weight (g m<sup>-2</sup>): This unit converts krill density (m<sup>2</sup>) into units of biomass based on a krill length:wet weight relationship. 
-	- Krill volumetric density (indiviudals m<sup>-3</sup>): This unit scales krill backscatter into abundance per unit volume based on estimates of the average krill size within each survey year. 
+	- Krill volumetric density (individuals m<sup>-3</sup>): This unit scales krill backscatter into abundance per unit volume based on estimates of the average krill size within each survey year. 
 	It is provided for consistency with previously supplied values, but total abundance is difficult to interpret without knowledge of the depth of the water column at the sample location. 
 	
 ## Data access:
