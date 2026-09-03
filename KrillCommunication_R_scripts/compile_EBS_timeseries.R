@@ -112,7 +112,7 @@ recalc_layers <- layer_results %>%
 
 ##############
 # step 2: load raw catch data to get krill lengths; This represents all of MACE's s processed krill catch data as of 07/2025
-krill_catch_data <- read_csv('../survey_results/summer_EBS/target_strength/MACE_krill_length_data.csv')
+krill_catch_data <- purrr::map_dfr('../survey_results/summer_EBS/target_strength/krill_length_data/', open_files)
 
 #############
 # step 3: load the Lucca 2023 TS-length lookup table; This represents the mean target strength (and it's linear equivalent, sigmaBS) for EBS krill on a per-cm basis. It also contains the length- wet weight values
