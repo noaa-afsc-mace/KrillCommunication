@@ -76,7 +76,7 @@ ggplot() +
   scale_color_viridis_c() + 
   facet_wrap(~year) +
   # set plot limits
-  coord_sf(xlim = c(min(st_coordinates(edsu_plot_dat)[,1]), max(st_coordinates(edsu_plot_dat)[,1])), ylim = c(min(st_coordinates(edsu_plot_dat)[,2]), max(st_coordinates(edsu_plot_dat)[,2])), expand = FALSE) +
+  coord_sf(xlim = c(min(st_coordinates(edsu_plot_dat)[,1]), max(st_coordinates(edsu_plot_dat)[,1])), ylim = c(min(st_coordinates(edsu_plot_dat)[,2]), max(st_coordinates(edsu_plot_dat)[,2])), expand = TRUE) +
   theme_bw()
 
 # plot krill/m2 for each year (log10 transformed)
@@ -86,7 +86,7 @@ ggplot() +
   scale_color_viridis_c() + 
   facet_wrap(~year) +
   # set plot limits
-  coord_sf(xlim = c(min(st_coordinates(edsu_plot_dat)[,1]), max(st_coordinates(edsu_plot_dat)[,1])), ylim = c(min(st_coordinates(edsu_plot_dat)[,2]), max(st_coordinates(edsu_plot_dat)[,2])), expand = FALSE) +
+  coord_sf(xlim = c(min(st_coordinates(edsu_plot_dat)[,1]), max(st_coordinates(edsu_plot_dat)[,1])), ylim = c(min(st_coordinates(edsu_plot_dat)[,2]), max(st_coordinates(edsu_plot_dat)[,2])), expand = TRUE) +
   theme_bw()
 
 ###################################################

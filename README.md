@@ -12,7 +12,7 @@ and the acoustic properties of krill (see De Robertis et al. 2010, Ressler 2012 
 	to scale backscatter into abundance and biomass more appropriately 
 	- Share this data at a finer spatial scale 
 	- Incorporate estimates from a uncrewed surface vehicle survey in 2020 when ship-based data was not available (Levine and De Robertis, 2025)
-- These updates are described in detail in a NOAA Technical Memorandum (Levine et al. in prep)
+- These updates are described in detail in a NOAA Technical Memorandum (Levine et al. 2026)
 
 ## Eastern Bering Sea summer acoustic-trawl survey: data products
 - Survey data are available in three resolutions:
@@ -38,9 +38,11 @@ The easiest way to get the data is to clone this repository. Once you've got it,
 We additionally provide a small R project in the folder 'KrillCommunication_R_scripts' that demonstrates how to compile and explore the EBS krill time series. Simply load the R project, and then open the script 'compile_EBS_timeseries.R'.
 
 ## Current version:
-The data here are PRELIMINARY for all years and should be used only for exploratory analysis! Final version expected fall 2025.
+The data here are PUBLISHED for 2004-2024 (Levine et al. 2026) and PRELIMINARY for 2026! 2026 estimates will change when krill catch and length data is available.
 	
 ### Further reading:
+Levine, M., De Robertis, A., Ressler, P., Lucca, B. 2026. A revised time series of euphausiid density and distribution from acoustic-trawl surveys of the Eastern Bering Sea shelf. U.S. Department of Commerce, NOAA Technical Memorandum NMFS-AFSC-525, 86 p. STILL IN PRESS
+
 [De Robertis, A., McKelvey, D.R., Ressler, P.H. 2010. Development and application of an empirical multifrequency method for backscatter classification.
 Can.J. Fish. Aquat. Sci. 67, 1459 –1474.](https://cdnsciencepub.com/doi/10.1139/F10-075)
 
